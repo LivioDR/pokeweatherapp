@@ -1,4 +1,5 @@
-import WeatherCard from "@/components/WeatherCard";
+import CurrentWeatherCard from "@/components/CurrentWeatherCard";
+import getWeather from "@/utilities/getWeather";
 import React, { useEffect, useState } from "react";
 
 
@@ -7,10 +8,11 @@ const WeatherPage = () => {
     const [location, setLocation] = useState({});
     const [geoEnabled, setGeoEnabled] = useState(false);
     const [geoErrorMsg, setGeoErrorMsg] = useState('');
+    const [apiData, setApiData] = useState({});
+    const [apiResponseReceived, setApiResponseReceived] = useState(false)
 
     useEffect(()=>{
         const success = (pos) => {
-            console.log(pos.coords)
             setGeoEnabled(true)
             setLocation({
                 lat: pos.coords.latitude,
@@ -26,10 +28,23 @@ const WeatherPage = () => {
 
     },[])
 
-    useEffect(()=>{
-        console.log('Location updated')
-        console.log(location)
-    },[location])
+    useEffect(() => {
+        const getData = async() => {
+            let results = await getWeather(location.lat,location.lon)
+            setApiData(results)
+        }
+        if(geoEnabled){
+            getData()
+        }
+    },[geoEnabled])
+
+    useEffect(() => {
+        if(apiData.hasOwnProperty('current_weather')){
+            setApiResponseReceived(true)
+            console.log("Api Response Received:")
+            console.log(apiData)
+        }
+    },[apiData])
 
     return(
         <>
@@ -38,9 +53,17 @@ const WeatherPage = () => {
         <h1>Your current position</h1>
         <p>Latitude: {location.lat}</p>
         <p>Longitude: {location.lon}</p>
-        <WeatherCard coords={location}/>
         </>
         }
+        <>
+        {
+            apiResponseReceived && 
+            <>
+                <CurrentWeatherCard data={{...apiData.current_weather, timezone: apiData.timezone}}/>
+                {/* <p>{`${apiData?.current_weather?.temperature}${apiData?.current_weather_units?.temperature}`}</p> */}
+            </>
+        }
+        </>
         {
             !geoEnabled &&
             <>

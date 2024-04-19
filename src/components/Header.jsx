@@ -1,7 +1,7 @@
 import React from "react";
 import { Jersey_10 } from 'next/font/google' 
 
-const jersey = Jersey_10({ weight: "400", subsets: ["latin"]})
+const jersey = Jersey_10({ weight: "400", subsets: ["latin"] })
 
 
 const headerStyle = {

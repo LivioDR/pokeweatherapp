@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header.jsx"
-import WeatherCard from "@/components/WeatherCard.jsx";
 import WeatherPage from "./WeatherPage.jsx";
 import React from "react";
-import { useState } from "react";
 
 export default function Home() {
   return (
@@ -15,12 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"/>
       </Head>
       <main>
         <Header/>
         <WeatherPage/>
-        {/* <WeatherCard props={{lat:43, lon:-81}}/> */}
       </main>
     </>
   );
