@@ -2,14 +2,15 @@ import getWeather from "@/utilities/getWeather";
 import React from "react";
 
 const WeatherCard = (props) => {
-    const lat = 42.983612
-    const lon = -81.249725
-    console.log(lat)
-    console.log(lon)
+    console.log(props)
+    const lat = props.coords.lat
+    const lon = props.coords.lon
+    
     getWeather(lat,lon)
     
     return(
         <div>
+            <h3>Weather Card Data</h3>
             <p>LAT: {lat}</p>
             <p>LON: {lon}</p>
         </div>

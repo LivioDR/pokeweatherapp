@@ -1,3 +1,4 @@
+import WeatherCard from "@/components/WeatherCard";
 import React, { useEffect, useState } from "react";
 
 
@@ -37,6 +38,7 @@ const WeatherPage = () => {
         <h1>Your current position</h1>
         <p>Latitude: {location.lat}</p>
         <p>Longitude: {location.lon}</p>
+        <WeatherCard coords={location}/>
         </>
         }
         {
