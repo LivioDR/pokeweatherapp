@@ -1,4 +1,5 @@
 import CurrentWeatherCard from "@/components/CurrentWeatherCard";
+import ForecastWeatherCard from "@/components/ForecastWeatherCard";
 import getWeather from "@/utilities/getWeather";
 import React, { useEffect, useState } from "react";
 
@@ -10,6 +11,15 @@ const WeatherPage = () => {
     const [geoErrorMsg, setGeoErrorMsg] = useState('');
     const [apiData, setApiData] = useState({});
     const [apiResponseReceived, setApiResponseReceived] = useState(false)
+    const [arrayOfForecast, setArrayOfForecast] = useState([])
+    const [dataProcessed, setDataProcessed] = useState(false)
+
+    const forecastContainerStyle = {
+        display:'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+    }
 
     useEffect(()=>{
         const success = (pos) => {
@@ -43,8 +53,40 @@ const WeatherPage = () => {
             setApiResponseReceived(true)
             console.log("Api Response Received:")
             console.log(apiData)
+            let array = []
+            let timeNow = false
+            let myTime = (new Date()).getHours()
+            for(let i=0; i<apiData.hourly.time.length; i++){
+                // Filtering out the past weather forecast for the day
+                if(!timeNow && Number(apiData.hourly.time[i].split("T")[1].substring(0,2)) <= myTime){
+                    continue;
+                }
+                else{
+                    timeNow = true
+                }
+                // Then creating an array of weather objects
+                const foreObj = {
+                    cloud_cover: `${apiData.hourly.cloud_cover[i]}${apiData.hourly_units.cloud_cover}`,
+                    precipitation_probability: `${apiData.hourly.precipitation_probability[i]}${apiData.hourly_units.precipitation_probability}`,
+                    snowfall: `${apiData.hourly.snowfall[i]} ${apiData.hourly_units.snowfall}`,
+                    temperature_2m: `${apiData.hourly.temperature_2m[i]}${apiData.hourly_units.temperature_2m}`,
+                    time: apiData.hourly.time[i].split("T")[1],
+                    date: apiData.hourly.time[i].split("T")[0],
+                    weather_code: apiData.hourly.weather_code[i],
+                    wind_speed_10m: `${apiData.hourly.wind_speed_10m[i]} ${apiData.hourly_units.wind_speed_10m}`,
+                    timezone: apiData.timezone
+                }
+                array.push(foreObj)
+            }
+            setArrayOfForecast(array)
         }
     },[apiData])
+
+    useEffect(()=>{
+        if(arrayOfForecast.length > 0){
+            setDataProcessed(true)
+        }
+    },[arrayOfForecast])
 
     return(
         <>
@@ -58,9 +100,12 @@ const WeatherPage = () => {
         <>
         {
             apiResponseReceived && 
+            dataProcessed &&
             <>
                 <CurrentWeatherCard data={{...apiData.current_weather, timezone: apiData.timezone}}/>
-                {/* <p>{`${apiData?.current_weather?.temperature}${apiData?.current_weather_units?.temperature}`}</p> */}
+                <div id="forecastContainer" style={forecastContainerStyle}>
+                    {arrayOfForecast.map(item=><ForecastWeatherCard data={item} key={item.date + item.time}/>)}
+                </div>
             </>
         }
         </>

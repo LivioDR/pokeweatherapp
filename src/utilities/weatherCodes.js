@@ -1,0 +1,33 @@
+import pokeSprite from "./pokeSprite.js"
+
+const weatherCodes = {
+    0: { description: 'Clear sky', image: pokeSprite.castform_sunny },
+    1: { description: 'Mainly clear', image: pokeSprite.espeon }, 
+    2: { description: 'Partly cloudy', image: pokeSprite.altaria },
+    3: { description: 'Overcast', image: pokeSprite.duskull },
+    45: { description: 'Fog', image: pokeSprite.mismagius },
+    48: { description: 'Depositing rime fog', image: pokeSprite.snorunt },
+    51: { description: 'Light drizzle', image: pokeSprite.lotad },
+    53: { description: 'Moderate drizzle', image: pokeSprite.pelipper },
+    55: { description: 'Dense intensity drizzle', image: pokeSprite.golduck },
+    56: { description: 'Freezing Drizzle: Light intensity', image: pokeSprite.froslass },
+    57: { description: 'Freezing Drizzle: dense intensity', image: pokeSprite.glalie },
+    61: { description: 'Slight rain', image: pokeSprite.ludicolo },
+    63: { description: 'Moderate rain', image: pokeSprite.kingdra },
+    65: { description: 'Heavy intensity rain', image: pokeSprite.kyogre },
+    66: { description: 'Freezing Rain: Light intensity', image: pokeSprite.weavile },
+    67: { description: 'Freezing Rain: heavy intensity', image: pokeSprite.beartic },
+    71: { description: 'Snow fall: slight intensity', image: pokeSprite.cubchoo },
+    73: { description: 'Snow fall: moderate intensity', image: pokeSprite.glaceon },
+    75: { description: 'Snow fall: heavy intensity', image: pokeSprite.piloswine },
+    77: { description: 'Snow grains', image: pokeSprite.kyurem },
+    80: { description: 'Rain showers: Slight', image: pokeSprite.ducklett },
+    81: { description: 'Rain showers:  moderate', image: pokeSprite.mantyke },
+    82: { description: 'Rain showers:  violent', image: pokeSprite.gyarados },
+    85: { description: 'Snow showers:  slight', image: pokeSprite.vanilluxe },
+    86: { description: 'Snow showers:  heavy', image: pokeSprite.abomasnow },
+    95: { description: 'Thunderstorm: Slight or moderate', image: pokeSprite.zapdos },
+    96: { description: 'Thunderstorm with slight hail', image: pokeSprite.thundurus },
+    99: { description: 'Thunderstorm with heavy hail', image: pokeSprite.zekrom },
+}
+export default weatherCodes
