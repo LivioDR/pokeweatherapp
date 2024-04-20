@@ -48,8 +48,8 @@ const forecastCardTextPStyles = {
 const imgStyle = {
     width: '65%',
     height: '65%',
-    objectFit: 'cover',
-
+    objectFit: 'contain',
+    margin: '5%',
 }
 
 const CurrentWeatherCard = (props) => {

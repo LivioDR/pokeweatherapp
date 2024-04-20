@@ -42,7 +42,7 @@ const cardBodyStyle = {
 const imgStyle = {
     width: '65%',
     height: '65%',
-    objectFit: 'cover',
+    objectFit: 'contain',
 
 }
 
