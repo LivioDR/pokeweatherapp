@@ -11,10 +11,8 @@ const headerStyle = {
     color: 'white',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     fontSize: '2em',
     padding: '10px',
-    paddingLeft: '50px',
     alignItems: 'center',
 }
 
@@ -22,7 +20,7 @@ const headerStyle = {
 const header = () => {
     return(
         <div id="header" style={headerStyle} className={jersey.className}>
-            PokeWeather NextApp
+            PokeWeather App
         </div>
     )
 }

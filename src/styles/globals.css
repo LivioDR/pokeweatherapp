@@ -108,6 +108,10 @@ a {
 .forecastCardHeaderText h3, .forecastCardHeaderText p {
   font-size: xx-large;
 }
+#header {
+  justify-content: flex-start;
+  padding-left: 50px;
+}
 
 .currentCardText h3 {
   text-align: center;
@@ -146,5 +150,10 @@ a {
   } 
   .currentCardText p {
     font-size: medium;
+  }
+  #header{
+    justify-content: center;
+    padding-left: 10px;
+    text-align: center;
   }
 }
