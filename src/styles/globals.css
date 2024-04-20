@@ -105,3 +105,46 @@ a {
     color-scheme: dark;
   }
 }
+.forecastCardHeaderText h3, .forecastCardHeaderText p {
+  font-size: xx-large;
+}
+
+.currentCardText h3 {
+  text-align: center;
+  font-size: xx-large;
+} 
+.currentCardText p {
+  font-size: xx-large;
+}
+@media (max-width : 800px){
+  .forecastCardHeaderText h3, .forecastCardHeaderText p {
+    font-size: x-large;
+  }
+  .currentCardHeaderText h3{
+    font-size: x-large;
+  }
+  .currentCardText h3 {
+    font-size: large;
+  } 
+  .currentCardText p {
+    font-size: large;
+  }
+}
+
+@media (max-width : 400px){
+  .forecastCardHeaderText h3, .forecastCardHeaderText p {
+    font-size: large;
+  }
+  .forecastCardText p {
+    font-size: small;
+  }
+  .currentCardHeaderText h3{
+    font-size: large;
+  }
+  .currentCardText h3 {
+    font-size: medium;
+  } 
+  .currentCardText p {
+    font-size: medium;
+  }
+}

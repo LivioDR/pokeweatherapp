@@ -8,7 +8,7 @@ const containerStyle = {
     justifyContent: 'space-around',
     width: '28%',
     margin: '20px',
-    minWidth: '325px',
+    minWidth: '250px',
     backgroundColor: '#3D3D3D',
     borderRadius: '10px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',

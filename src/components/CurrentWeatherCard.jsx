@@ -40,8 +40,7 @@ const cardBodyStyle = {
     alignItems: 'center',
 }
 
-const forecastCardTextPStyles = {
-    fontSize: 'xx-large',
+const currentCardTextPStyles = {
     margin: '10% 0%',
 }
 
@@ -58,16 +57,16 @@ const CurrentWeatherCard = (props) => {
     const {time, timezone, temperature, weathercode, windspeed } = {...props.data}
     
     return(
-        <div className="forecastWeatherCard" style={containerStyle}>
-            <div className="forecastCardHeaderText" style={headerStyle}>
+        <div className="currentWeatherCard" style={containerStyle}>
+            <div className="currentCardHeaderText" style={headerStyle}>
                 <h3>{time.split("T").join(" ").replaceAll("-","/")}</h3>
                 <h3>{timezone}</h3>
             </div>
-            <div className="forecastCardBody" style={cardBodyStyle}>
-                <div className="forecastCardText" style={textStyle}>
-                    <h3 style={forecastCardTextPStyles}>{weatherCodes[weathercode].description}</h3>
-                    <p style={forecastCardTextPStyles}>Temp: {temperature}</p>
-                    <p style={forecastCardTextPStyles}>Wind: {windspeed}</p>
+            <div className="currentCardBody" style={cardBodyStyle}>
+                <div className="currentCardText" style={textStyle}>
+                    <h3 style={currentCardTextPStyles}>{weatherCodes[weathercode].description}</h3>
+                    <p style={currentCardTextPStyles}>Temp: {temperature}</p>
+                    <p style={currentCardTextPStyles}>Wind: {windspeed}</p>
                 </div>
                 <img 
                 src={weatherCodes[weathercode].image}
