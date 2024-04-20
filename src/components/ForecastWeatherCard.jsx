@@ -47,7 +47,7 @@ const imgStyle = {
 }
 
 const ForecastWeatherCard = (props) => {
-    const {time, timezone, temperature_2m, cloud_cover, precipitation_probability, snowfall, weather_code, wind_speed_10m } = {...props.data}
+    const {time, temperature_2m, cloud_cover, precipitation_probability, snowfall, weather_code, wind_speed_10m } = {...props.data}
     
     return(
         <div className="forecastWeatherCard" style={containerStyle}>
