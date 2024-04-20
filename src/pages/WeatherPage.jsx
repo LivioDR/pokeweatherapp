@@ -78,6 +78,8 @@ const WeatherPage = () => {
                 }
                 array.push(foreObj)
             }
+            // getting just the next 24 hours
+            array = array.slice(0, 24)
             setArrayOfForecast(array)
         }
     },[apiData])
@@ -90,14 +92,6 @@ const WeatherPage = () => {
 
     return(
         <>
-        { geoEnabled &&
-        <>
-        <h1>Your current position</h1>
-        <p>Latitude: {location.lat}</p>
-        <p>Longitude: {location.lon}</p>
-        </>
-        }
-        <>
         {
             apiResponseReceived && 
             dataProcessed &&
@@ -108,7 +102,6 @@ const WeatherPage = () => {
                 </div>
             </>
         }
-        </>
         {
             !geoEnabled &&
             <>
