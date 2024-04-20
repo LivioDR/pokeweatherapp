@@ -4,7 +4,7 @@ const weatherCodes = {
     0: { description: 'Clear sky', image: pokeSprite.castform_sunny },
     1: { description: 'Mainly clear', image: pokeSprite.espeon }, 
     2: { description: 'Partly cloudy', image: pokeSprite.altaria },
-    3: { description: 'Overcast', image: pokeSprite.duskull },
+    3: { description: 'Overcast', image: pokeSprite.mega_altaria },
     45: { description: 'Fog', image: pokeSprite.mismagius },
     48: { description: 'Depositing rime fog', image: pokeSprite.snorunt },
     51: { description: 'Light drizzle', image: pokeSprite.lotad },
