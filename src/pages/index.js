@@ -24,14 +24,14 @@ export default function Home() {
         <meta property="og:url" content="https://nextpokeweather.netlify.app/" />
         <meta property="og:title" content="PokeWeather App" />
         <meta property="og:description" content="PokeWeather App provides the weather on your current location for the next 24 hours with a playful pokemon animation to represent it." />
-        <meta property="og:image" content="../../public/meta-image.jpg" />
+        <meta property="og:image" content="https://nextpokeweather.netlify.app/meta-image.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://nextpokeweather.netlify.app/" />
         <meta property="twitter:title" content="PokeWeather App" />
         <meta property="twitter:description" content="PokeWeather App provides the weather on your current location for the next 24 hours with a playful pokemon animation to represent it." />
-        <meta property="twitter:image" content="../../public/meta-image.jpg" />
+        <meta property="twitter:image" content="https://nextpokeweather.netlify.app/meta-image.jpg" />
         {/* <!-- Meta Tags Generated with https://metatags.io --> */}
       </Head>
       <main>
