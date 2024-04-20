@@ -7,7 +7,7 @@ const containerStyle = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     width: '28%',
-    margin: '20px',
+    margin: '15px',
     minWidth: '250px',
     backgroundColor: '#3D3D3D',
     borderRadius: '10px',
