@@ -94,7 +94,7 @@ const WeatherPage = () => {
             apiResponseReceived && 
             dataProcessed &&
             <>
-                <CurrentWeatherCard data={{...apiData.current_weather, timezone: apiData.timezone}}/>
+                <CurrentWeatherCard data={{...apiData.current_weather, units: apiData.current_weather_units, timezone: apiData.timezone}}/>
                 <div id="forecastContainer" style={forecastContainerStyle}>
                     {arrayOfForecast.map(item=><ForecastWeatherCard data={item} key={item.date + item.time}/>)}
                 </div>
