@@ -51,8 +51,6 @@ const WeatherPage = () => {
     useEffect(() => {
         if(apiData.hasOwnProperty('current_weather')){
             setApiResponseReceived(true)
-            console.log("Api Response Received:")
-            console.log(apiData)
             let array = []
             let timeNow = false
             let myTime = (new Date()).getHours()

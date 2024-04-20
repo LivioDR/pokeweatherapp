@@ -51,9 +51,7 @@ const imgStyle = {
     margin: '5%',
 }
 
-const CurrentWeatherCard = (props) => {
-    console.log(props)
-    
+const CurrentWeatherCard = (props) => {    
     const {time, timezone, temperature, weathercode, windspeed } = {...props.data}
     
     return(
