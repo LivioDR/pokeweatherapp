@@ -57,11 +57,17 @@ const ForecastWeatherCard = (props) => {
             </div>
             <div className="forecastCardBody" style={cardBodyStyle}>
                 <div className="forecastCardText" style={textStyle}>
-                    <p>Temp: {temperature_2m}</p>
-                    <p>Cloud: {cloud_cover}</p>
-                    <p>Rain: {precipitation_probability}</p>
-                    <p>Snowfall: {snowfall}</p>
-                    <p>Wind: {wind_speed_10m}</p>
+                    <p><i class="fi fi-rr-temperature-high"></i> {temperature_2m}</p>
+                    <p><i class="fi fi-rs-cloud-sun"></i> {cloud_cover}</p>
+                    {
+                        precipitation_probability != "0%" &&
+                        <p><i class="fi fi-rr-cloud-showers-heavy"></i> {precipitation_probability}</p>
+                    }
+                    {
+                        snowfall != "0 cm" &&
+                        <p><i class="fi fi-rr-snowflakes"></i> {snowfall}</p>
+                    }
+                    <p><i class="fi fi-sr-wind"></i> {wind_speed_10m}</p>
                 </div>
                 <img 
                 src={weatherCodes[weather_code].image}
