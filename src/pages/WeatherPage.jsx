@@ -17,8 +17,8 @@ const WeatherPage = () => {
     const forecastContainerStyle = {
         display:'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
         justifyContent: 'space-evenly',
+        overflowX: 'scroll',
     }
 
     useEffect(()=>{
@@ -67,11 +67,11 @@ const WeatherPage = () => {
                     cloud_cover: `${apiData.hourly.cloud_cover[i]}${apiData.hourly_units.cloud_cover}`,
                     precipitation_probability: `${apiData.hourly.precipitation_probability[i]}${apiData.hourly_units.precipitation_probability}`,
                     snowfall: `${apiData.hourly.snowfall[i]} ${apiData.hourly_units.snowfall}`,
-                    temperature_2m: `${apiData.hourly.temperature_2m[i]}${apiData.hourly_units.temperature_2m}`,
+                    temperature_2m: `${Math.round(Number(apiData.hourly.temperature_2m[i]))}${apiData.hourly_units.temperature_2m}`,
                     time: apiData.hourly.time[i].split("T")[1],
                     date: apiData.hourly.time[i].split("T")[0],
                     weather_code: apiData.hourly.weather_code[i],
-                    wind_speed_10m: `${apiData.hourly.wind_speed_10m[i]}${apiData.hourly_units.wind_speed_10m}`,
+                    wind_speed_10m: `${Math.round(Number(apiData.hourly.wind_speed_10m[i]))} ${apiData.hourly_units.wind_speed_10m}`,
                     timezone: apiData.timezone
                 }
                 array.push(foreObj)
