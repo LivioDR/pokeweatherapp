@@ -2,7 +2,6 @@ import CurrentWeatherCard from "@/components/CurrentWeatherCard";
 import ForecastWeatherCard from "@/components/ForecastWeatherCard";
 import getWeather from "@/utilities/getWeather";
 import React, { useEffect, useState } from "react";
-import { Carousel } from '@trendyol-js/react-carousel';
 
 
 const WeatherPage = () => {
@@ -97,9 +96,7 @@ const WeatherPage = () => {
             <>
                 <CurrentWeatherCard data={{...apiData.current_weather, units: apiData.current_weather_units, timezone: apiData.timezone}}/>
                 <div id="forecastContainer" style={forecastContainerStyle}>
-                    <Carousel show={1} slide={1} swiping={true} useArrowKeys={true} infinite={false} dynamic={true}>
-                        {arrayOfForecast.map(item=><ForecastWeatherCard data={item} key={item.date + item.time}/>)}
-                    </Carousel>
+                    {arrayOfForecast.map(item=><ForecastWeatherCard data={item} key={item.date + item.time}/>)}
                 </div>
             </>
         }
