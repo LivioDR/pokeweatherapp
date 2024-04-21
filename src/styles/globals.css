@@ -145,7 +145,7 @@ a {
   }
 }
 
-@media (max-width : 400px){
+@media (max-width : 450px){
   .forecastCardHeaderText h3, .forecastCardHeaderText p {
     font-size: large;
   }
