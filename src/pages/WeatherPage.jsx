@@ -1,5 +1,6 @@
 import CurrentWeatherCard from "@/components/CurrentWeatherCard";
 import ForecastWeatherCard from "@/components/ForecastWeatherCard";
+import getCity from "@/utilities/getCity.js"
 import getWeather from "@/utilities/getWeather";
 import React, { useEffect, useState } from "react";
 
@@ -35,15 +36,20 @@ const WeatherPage = () => {
         }
         
         navigator.geolocation.getCurrentPosition(success, error)
-
+        
     },[])
-
+    
     useEffect(() => {
         const getData = async() => {
             let results = await getWeather(location.lat,location.lon)
+            const city = await getCity(location.lat,location.lon)
+            if(city != undefined && typeof(city) == 'string' && city.length > 0){
+                results.timezone = city
+            }
             setApiData(results)
         }
         if(geoEnabled){
+            setGeoErrorMsg("Loading...")
             getData()
         }
     },[geoEnabled])
@@ -98,6 +104,13 @@ const WeatherPage = () => {
                 <div id="forecastContainer" style={forecastContainerStyle}>
                     {arrayOfForecast.map(item=><ForecastWeatherCard data={item} key={item.date + item.time}/>)}
                 </div>
+            </>
+        }
+        {
+            geoEnabled &&
+            !apiResponseReceived &&
+            <>
+            <h1>{geoErrorMsg}</h1>
             </>
         }
         {
