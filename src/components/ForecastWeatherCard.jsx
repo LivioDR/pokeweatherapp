@@ -28,7 +28,7 @@ const textStyle = {
     flexDirection: 'column',
     lineHeight: '25px',
     textAlign: 'left',
-    width: '35%',
+    width: '40%',
     marginLeft: '10px',
 }
 
@@ -40,8 +40,8 @@ const cardBodyStyle = {
 }
 
 const imgStyle = {
-    width: '65%',
-    height: '65%',
+    width: '60%',
+    height: '80%',
     objectFit: 'contain',
 
 }

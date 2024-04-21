@@ -62,8 +62,8 @@ const CurrentWeatherCard = (props) => {
             <div className="currentCardBody" style={cardBodyStyle}>
                 <div className="currentCardText" style={textStyle}>
                     <h3 style={currentCardTextPStyles}>{weatherCodes[weathercode].description}</h3>
-                    <p style={currentCardTextPStyles}><i class="fi fi-rr-temperature-high"></i> {temperature}{units.temperature}</p>
-                    <p style={currentCardTextPStyles}><i class="fi fi-sr-wind"></i> {windspeed}{units.windspeed}</p>
+                    <p style={currentCardTextPStyles}><i class="fi fi-rr-temperature-high"></i> {Math.round(Number(temperature))}{units.temperature}</p>
+                    <p style={currentCardTextPStyles}><i class="fi fi-sr-wind"></i> {Math.round(Number(windspeed))} {units.windspeed}</p>
                 </div>
                 <img 
                 src={weatherCodes[weathercode].image}
