@@ -120,6 +120,13 @@ a {
 .currentCardText p {
   font-size: xx-large;
 }
+
+@media (min-width : 1300px){
+  .forecastCardText p {
+    font-size: x-large;
+  }
+}
+
 @media (max-width : 800px){
   .forecastCardHeaderText h3, .forecastCardHeaderText p {
     font-size: x-large;
@@ -132,6 +139,9 @@ a {
   } 
   .currentCardText p {
     font-size: large;
+  }
+  .forecastCardText p {
+    font-size: medium;
   }
 }
 
@@ -156,4 +166,5 @@ a {
     padding-left: 10px;
     text-align: center;
   }
+
 }

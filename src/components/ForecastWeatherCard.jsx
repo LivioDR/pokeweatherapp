@@ -26,7 +26,7 @@ const headerStyle = {
 const textStyle = {
     display: 'flex',
     flexDirection: 'column',
-    lineHeight: '1.5em',
+    lineHeight: '25px',
     textAlign: 'left',
     width: '35%',
     marginLeft: '10px',
