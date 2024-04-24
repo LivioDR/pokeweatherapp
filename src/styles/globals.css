@@ -174,5 +174,8 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  height: 90vh;
+  height: 92vh;
+  background-image: url('../../public/background.avif');
+  background-position: center;
+  background-size: cover;
 }

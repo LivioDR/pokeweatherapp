@@ -1,5 +1,7 @@
 import React from "react";
 import weatherCodes from "@/utilities/weatherCodes.js";
+import getLanguage from "@/utilities/getLanguage";
+import weatherLanguages from "@/utilities/weatherLanguages";
 
 const containerStyle = {
     color: 'white',
@@ -9,7 +11,7 @@ const containerStyle = {
     width: '28%',
     margin: '15px',
     minWidth: '250px',
-    backgroundColor: '#3D3D3D',
+    backgroundColor: '#3D3D3DD0',
     borderRadius: '10px',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
 }
@@ -48,12 +50,18 @@ const imgStyle = {
 
 const ForecastWeatherCard = (props) => {
     const {time, temperature_2m, cloud_cover, precipitation_probability, snowfall, weather_code, wind_speed_10m } = {...props.data}
-    
+    let weatherDescription = weatherCodes[weather_code].description
+
+    const lang = getLanguage()
+    if(weatherLanguages.hasOwnProperty(lang)){
+        weatherDescription = weatherLanguages[lang][weatherDescription]
+    }
+
     return(
         <div className="forecastWeatherCard" style={containerStyle}>
             <div className="forecastCardHeaderText" style={headerStyle}>
                 <h3>{time}</h3>
-                <p>{weatherCodes[weather_code].description}</p>
+                <p>{weatherDescription}</p>
             </div>
             <div className="forecastCardBody" style={cardBodyStyle}>
                 <div className="forecastCardText" style={textStyle}>
@@ -71,7 +79,7 @@ const ForecastWeatherCard = (props) => {
                 </div>
                 <img 
                 src={weatherCodes[weather_code].image}
-                alt={weatherCodes[weather_code].description}
+                alt={weatherDescription}
                 style={imgStyle}
                 />
 

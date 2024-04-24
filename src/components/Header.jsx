@@ -6,7 +6,7 @@ const jersey = Jersey_10({ weight: "400", subsets: ["latin"] })
 
 const headerStyle = {
     width: '100%',
-    height: '2em',
+    height: '8vh',
     backgroundColor: 'blue',
     color: 'white',
     display: 'flex',
