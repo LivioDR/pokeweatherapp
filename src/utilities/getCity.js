@@ -12,8 +12,6 @@ const getCity = async(lat, lon) => {
         })
     }).then(response => response.json()).then(res => res.message)
 
-    console.log(res)
-
     let lang = getLanguage()
 
     if(res[0].local_names.hasOwnProperty(lang)){
