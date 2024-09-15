@@ -1,9 +1,19 @@
-import API_KEY from "./API_KEY.js";
 import getLanguage from "./getLanguage.js";
 
 const getCity = async(lat, lon) => {
     const limit = 1
-    let res = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=${limit}&appid=${API_KEY}`).then(res => res.json())
+
+    let res = await fetch('/api/weather',{
+        method: 'POST',
+        body: JSON.stringify({
+            lat: lat,
+            lon: lon,
+            limit: 1,
+        })
+    }).then(response => response.json()).then(res => res.message)
+
+    console.log(res)
+
     let lang = getLanguage()
 
     if(res[0].local_names.hasOwnProperty(lang)){
